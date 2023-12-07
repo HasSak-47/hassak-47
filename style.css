@@ -1,0 +1,19 @@
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
+:root{
+    --back-color: #000000;
+    --middle-color: #888888;
+    --front-color: #ffffff;
+}
+
+body{
+    color: var(--middle-color);
+    background-color: var(--back-color);
+    font: fira-code;
+}
+
+a{
+    color: var(--front-color);
+}
+
+.fcode { font-family: 'Fira Code', monospace; }
