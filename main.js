@@ -39,3 +39,4 @@ function handle_projects(){
 }
 
 handle_projects();
+console.log("fucker");
