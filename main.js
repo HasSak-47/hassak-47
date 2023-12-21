@@ -1,24 +1,51 @@
-const projects_repos = ["LyVim", "Monitor", "ascii-art", "project_manager", "cshell", "tetra"];
+const projects_repos = ["LyVim", "Monitor", "ascii-art", "project_manager", "cshell", "tetra", ];
+const github_url = "https://www.github.com/HasSak-47/"
+const page_url   = "https://hassak-47.github.io/"
 
-function create_link(repo, text){
 
-    let div = document.createElement("div");
-    div.text = repo + "_ursl";
+/**
+	* @param {string} base - The name of the repo
+	* @param {string} text - The name of the repo
+	* @param {string} repo - The name of the repo
+*/
+function create_link(base, text, repo){
+    let lnk = document.createElement("a");
 
-    let repo_link = document.createElement("a");
-    let page_link = document.createElement("a");
-    if(link == null)
-        throw("fucker");
-    link.href=url + repo;
-    link.text=text;
+	lnk.href = base + repo;
+	lnk.text = text;
+	lnk.className = "proj-url";
 
-    div.appendChild(link);
-
-    return div;
+	return lnk;
 }
 
-const github_url = "https://www.github.com/HasSak-47"
-const page_url   = "https://hassak-47.github.io/"
+/**
+	* returns this thingy
+	* <div class="project">
+	* 	name:
+	* </div>
+	* <div class="urls">
+	* 	name:
+	* 	<a href="..." class="proj-url"> Page Url </a>
+	* 	<a href="..." class="proj-url"> Repo Url </a>
+	* </div>
+	* <div class="status">
+	* </div>
+	* @param {string} repo - The name of the repo
+	*/
+function create_links(repo){
+    let div = document.createElement("div");
+    div.innerText = repo + " links:";
+	div.className = "project";
+
+	let urls = document.createElement("div");
+	urls.className = "urls"
+
+	urls.appendChild(create_link(github_url, "Repo", repo));
+	urls.appendChild(create_link(page_url, "Page", repo));
+
+	div.append(urls);
+    return div;
+}
 
 function handle_projects(){
     let projects_div = document.getElementById("projects");
@@ -31,12 +58,9 @@ function handle_projects(){
         let repo_div = document.createElement("div");
 
         repo_div.id = repo;
-        repo_div.text = repo;
-        repo_div.appendChild(create_link(repo, github_url, "repo"));
-        repo_div.appendChild(create_link(repo, page_url, "page"));
-        projects_div.appendChild(repo_div);
+        repo_div.innerText = repo;
+        projects_div.appendChild(create_links(repo));
     }
 }
 
 handle_projects();
-console.log("fucker");

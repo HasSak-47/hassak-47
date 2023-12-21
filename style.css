@@ -1,19 +1,54 @@
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 
+html{
+	align-items: center;
+	text-align: center;
+}
+
 :root{
-    --back-color: #000000;
-    --middle-color: #888888;
-    --front-color: #ffffff;
+    --back-color: #121010;
+    --middle-color: #909090;
+    --front-color: #c2c2c2;
 }
 
 body{
     color: var(--middle-color);
     background-color: var(--back-color);
     font: fira-code;
+	text-align: center;
+	margin: auto;
+	display: block;
 }
+
 
 a{
     color: var(--front-color);
+	text-decoration: none;
+}
+
+#projects{
+	width: 500px;
+	margin: auto;
+}
+
+.proj-url{
+	padding-left: 10px;
+}
+
+.urls{
+	width: max-content;
+	align-self: flex-end;
+}
+
+.project{
+	display: flex;
+	justify-content: space-between;
+	padding-top: 4px;
+
 }
 
 .fcode { font-family: 'Fira Code', monospace; }
+
+#libs{
+	padding-top: 50px;
+}
