@@ -57,7 +57,6 @@ function handle_projects(){
 
     for(let project in projects){
         let repo = project;
-        console.log(repo);
         let repo_div = document.createElement("div");
 
         repo_div.id = repo;
