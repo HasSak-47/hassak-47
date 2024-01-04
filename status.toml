@@ -18,6 +18,11 @@ name = "display projects better"
 difficulty = 0.5
 priority = 0.6
 
+[todo]
+name = "create better debug system"
+difficulty = 0.3
+priority = 0.2
+
 [done]
 name = "make quick prototype"
 difficulty = 0.3

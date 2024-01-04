@@ -27,9 +27,6 @@ function manage_toml(toml){
 	let done_match = toml.match(/\[\[(\done.)*done\]\]\n(.*\n){0,3}difficulty\s?=\s?\d*.?\d*/mg);
 	let todo_match = toml.match(/\[\[(\todo.)*todo\]\]\n(.*\n){0,3}difficulty\s?=\s?\d*.?\d*/mg);
 
-	console.log(toml
-	,done_match
-	,todo_match);
 	if(done_match === null || todo_match === null)
 		return null;
 
