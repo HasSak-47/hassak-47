@@ -1,7 +1,5 @@
-const projects_repos = ["LyVim", "Monitor", "ascii-art", "project_manager", "cshell", "tetra", ];
 const github_url = "https://www.github.com/HasSak-47/"
 const page_url   = "https://hassak-47.github.io/"
-
 
 /**
 	* @param {string} base - The name of the repo
@@ -20,7 +18,7 @@ function create_link(base, text, repo){
 
 /**
 	* returns this thingy
-	* <div class="project">
+	* <div class="project" id="repo">
 	* 	name:
 	* </div>
 	* <div class="urls">
@@ -34,8 +32,13 @@ function create_link(base, text, repo){
 	*/
 function create_links(repo){
     let div = document.createElement("div");
-    div.innerText = repo + " links:";
 	div.className = "project";
+
+	let repo_data = document.createElement("div");
+	repo_data.innerText = repo;
+	repo_data.id = repo
+
+	div.append(repo_data);
 
 	let urls = document.createElement("div");
 	urls.className = "urls"
@@ -52,15 +55,19 @@ function handle_projects(){
     if(projects_div == null)
         return;
 
-    for(let i = 0; i < projects_repos.length; ++i){
-        let repo = projects_repos[i];
+    for(let project in projects){
+        let repo = project;
         console.log(repo);
         let repo_div = document.createElement("div");
 
         repo_div.id = repo;
-        repo_div.innerText = repo;
         projects_div.appendChild(create_links(repo));
     }
+	return false;
 }
 
-handle_projects();
+window.onload = async () => {
+	handle_projects();
+	await read_statuses();
+	return void 0;
+};
